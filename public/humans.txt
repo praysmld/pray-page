@@ -1,0 +1,16 @@
+/* TEAM */
+Builder: Pray Somaldo
+Role: Lead AI Engineer · LLM Systems · RAG · Multi-Agent
+Contact: praysomaldo95@gmail.com
+Site: https://praysomaldo.com
+Location: Jakarta, Indonesia
+LinkedIn: https://linkedin.com/in/praysomaldo
+GitHub: https://github.com/praysmld
+
+/* THANKS */
+AI Pair: Claude Code (Anthropic)
+
+/* SITE */
+Stack: React 19, TypeScript, Vite, Tailwind CSS, Motion
+Hosting: Vercel
+Standards: JSON-LD, Open Graph

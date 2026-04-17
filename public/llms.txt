@@ -1,0 +1,113 @@
+# Pray Somaldo
+
+> Lead AI Engineer · LLM Systems · RAG · Multi-Agent
+
+## Contact & Availability
+
+- **Location:** Jakarta, Indonesia
+- **Open to:** Senior AI/ML Engineering roles (remote EU/US welcomed)
+- **Email:** praysomaldo95@gmail.com
+- **Phone:** +62 82128660704
+- **Website:** https://praysomaldo.com
+- **GitHub:** https://github.com/praysmld
+- **LinkedIn:** https://linkedin.com/in/praysomaldo
+- **Personal site:** https://prays.github.io
+
+## Professional Summary
+
+Lead AI Engineer at Simplify with 7+ years building production AI systems. Deep experience across LLM integration, RAG pipelines, multi-agent orchestration, fine-tuning open-source models, and computer vision. Currently leads a team of 15 AI engineers building AI agents for the software development lifecycle.
+
+## Current Role
+
+**Lead AI Engineer @ Simplify** (Jan 2026 – Now, Jakarta)
+- Leads team of 15 AI engineers building AI agents for SDLC simplification
+- Stack: LangChain, LangGraph, LLMs, multi-modal
+- Manages stakeholder expectations on AI agent capabilities
+
+## Experience
+
+### AI Technical Lead @ PT SMART Tbk (Nov 2025 – Jan 2026, Jakarta)
+Led 4-person team (2 AI engineers + 2 software engineers) on computer vision palm fruit quality assessment. Refactored loose fruit detection codebase (30% dev time reduction), automated deployment pipelines.
+
+### AI Advisor (Part-time) @ Links (Nov 2025 – Now, US remote)
+Advises engineering teams on AI prompting strategy, LLM selection, MCP server integration, and client expectations. Built AI agent systems with MCP.
+
+### Senior AI Engineer @ Polyrific (Jul 2024 – Jun 2025, NY US remote)
+- Integrated multiple LLM APIs (OpenAI, Groq, Mistral, Anthropic, Amazon Bedrock) with Gmail/Jira/Slack — 20% latency reduction
+- Built multi-modal conversational chatbot with podcast-style audio + image generation (Azure TTS, Flux)
+- Designed agentic memory systems (session summarization + cross-session consolidation)
+- Developed PII protection mechanism (Microsoft Presidio)
+- Researched open-source embeddings — 15% cost reduction
+- Stack: TypeScript, Node.js, Express, Milvus, FastAPI, Docker, PostgreSQL, DALL-E, ollama, llamacpp
+
+### Sr. Machine Learning Engineer / Data Scientist @ GDP Labs (Jun 2021 – Jun 2024, Jakarta)
+- Built on-premise RAG chatbots (LangChain, LlamaIndex, ChromaDB, Flask)
+- Fine-tuned Llama2 and Mistral — 60% improvement on bank project
+- Implemented NER for entity anonymization before LLM API calls
+- Advised AWS data analytics architecture, built MLOps on API Gateway + CloudWatch
+- Researched AI observability (DeepEval)
+- Fine-tuned multilingual embedding models — 15% retrieval lift
+- Optimized LightGBM for ingredient prediction — 10% waste reduction
+- Stack: LangChain, LlamaIndex, Flask, ChromaDB, Elasticsearch, AWS, SQL, Pandas, Docker, Pytest, Boto3, Metabase, Kubernetes, RAG, NER, Transformers, Grafana
+
+### Machine Learning Engineer @ PT Sugihart Digital Imaji (Aug 2019 – Jan 2021)
+- People density heatmap system for crowd visualization
+- Real-time face recognition attendance system — <2s latency, 97%+ accuracy
+- Stack: OpenCV, TensorFlow, PyTorch, Darknet, YOLO, TensorRT, DeepStream, MySQL, ONNX
+
+### Data Scientist / Freelance (Oct 2017 – Feb 2021)
+- Text ML model for news filtering — 95% accuracy
+- Data clustering for campaigns (region, density, salary, religion)
+- NLP transformer deployment for Nanyang Technological University Singapore (course recommendation)
+
+## Open Source
+
+**JaidedAI/EasyOCR** — contributor to optical character recognition library supporting 70+ languages.
+
+## Education
+
+- **2019–2021** — Master of Computer Science, University of Indonesia
+
+## Certifications
+
+- **AWS Certified Machine Learning Engineer – Associate** (Oct 2025)
+- **Computer Vision Nanodegree** — Udacity (Jul 2020)
+
+## Recognition
+
+- **Best Employee** — GDP Labs (Aug 2022, out of 70+ employees)
+- **Top 10** — Shopee National Data Science Competition, Product Matching Advanced (Nov 2020, 139 teams)
+- **Mentor** — Garuda Hacks (Jul 2023, 52 teams at Indonesia's Premier Hackathon)
+- **Advisor** — Bangkit Bootcamp by Google/GoTo/Traveloka (Jun 2023, 3 teams)
+
+## Technical Stack
+
+**Languages:** Python, JavaScript/TypeScript, SQL
+
+**LLM / AI:**
+- LangChain, LangGraph, LlamaIndex
+- OpenAI, Anthropic (Claude), Groq, Mistral, Amazon Bedrock
+- Fine-tuning: Llama2, Mistral, multilingual embeddings
+- Agentic systems, MCP (Model Context Protocol), tool calling
+- Presidio (PII), DeepEval (observability)
+- Azure TTS, Flux, DALL-E (multi-modal)
+
+**RAG & Vector Stores:** Milvus, ChromaDB, pgvector, Elasticsearch
+
+**Cloud (AWS):** SageMaker, Glue, Athena, EC2, QuickSight, RDS, DMS, API Gateway, Lambda, S3
+
+**ML:** scikit-learn, PySpark, TensorFlow, PyTorch, Keras, FBProphet, PyOD, MLflow
+
+**Big Data:** Apache Spark, PrestoDB, TrinoDB
+
+**CV:** OpenCV, YOLO, Darknet, TensorRT, DeepStream, ONNX
+
+**MLOps:** Docker, Kubernetes, MLflow, Grafana, CloudWatch
+
+## What I'm Looking For
+
+Senior or staff-level AI engineering roles where I can:
+- Lead LLM/RAG system architecture and production deployment
+- Build multi-agent and agentic workflows at scale
+- Drive MLOps practices and LLM observability
+- Mentor engineering teams on AI adoption

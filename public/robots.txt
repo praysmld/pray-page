@@ -1,0 +1,26 @@
+# Built by Pray Somaldo — praysomaldo95@gmail.com
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /ops
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://praysomaldo.com/sitemap.xml
