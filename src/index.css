@@ -24,26 +24,42 @@ button, a, [role="button"], summary { cursor: pointer; }
 @theme {
   --font-sans: "DM Sans", system-ui, sans-serif;
   --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
 }
 
-/* Light green palette — Pray's portfolio */
+/* Indigo / violet palette — CV Hi-Fi */
 @layer base {
   :root {
-    --background: 150 20% 98%;      /* very neutral off-white with a whisper of green */
-    --foreground: 160 25% 12%;
-    --muted: 150 18% 93%;            /* subtle cool gray-green for cards/chips */
-    --muted-foreground: 160 12% 38%;
-    --primary: 142 72% 29%;          /* #16a34a green 600 — accent only */
+    --background: 44 30% 96%;         /* warm cream */
+    --foreground: 240 30% 12%;        /* deep slate-indigo */
+    --muted: 240 20% 93%;
+    --muted-foreground: 240 12% 40%;
+    --primary: 245 58% 40%;           /* deep electric indigo */
     --primary-foreground: 0 0% 100%;
-    --accent: 160 84% 39%;           /* #10b981 emerald 500 */
+    --accent: 270 60% 52%;            /* violet */
     --accent-foreground: 0 0% 100%;
-    --border: 150 15% 86%;
-    --card: 0 0% 100%;               /* pure white for hero */
-    --card-foreground: 160 25% 12%;
-    --gradient-from: 142 72% 45%;
-    --gradient-to: 160 84% 39%;
-    --success: 142 72% 29%;
-    --dot-grid: 150 18% 55% / 0.22;  /* neutral dots, not green-tinted */
+    --border: 240 15% 86%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 30% 12%;
+    --gradient-from: 245 58% 45%;
+    --gradient-to: 270 60% 55%;
+    --dot-grid: 245 20% 55% / 0.18;
+  }
+
+  :root[data-theme="dark"] {
+    --background: 240 20% 8%;
+    --foreground: 240 8% 94%;
+    --muted: 240 18% 14%;
+    --muted-foreground: 240 10% 62%;
+    --primary: 250 85% 68%;
+    --primary-foreground: 0 0% 100%;
+    --accent: 270 85% 72%;
+    --border: 240 18% 20%;
+    --card: 240 22% 12%;
+    --card-foreground: 240 8% 94%;
+    --gradient-from: 250 85% 66%;
+    --gradient-to: 270 85% 70%;
+    --dot-grid: 245 30% 55% / 0.12;
   }
 
   * {
@@ -82,25 +98,46 @@ button, a, [role="button"], summary { cursor: pointer; }
   .bg-muted\/50 { background-color: hsl(var(--muted) / 0.5); }
   .bg-primary { background-color: hsl(var(--primary)); }
   .bg-primary\/5 { background-color: hsl(var(--primary) / 0.05); }
+  .bg-primary\/8 { background-color: hsl(var(--primary) / 0.08); }
   .bg-primary\/10 { background-color: hsl(var(--primary) / 0.1); }
+  .bg-primary\/15 { background-color: hsl(var(--primary) / 0.15); }
   .bg-primary\/20 { background-color: hsl(var(--primary) / 0.2); }
+  .bg-primary\/70 { background-color: hsl(var(--primary) / 0.7); }
+  .bg-primary\/90 { background-color: hsl(var(--primary) / 0.9); }
+  .hover\:bg-primary\/5:hover { background-color: hsl(var(--primary) / 0.05); }
+  .hover\:bg-primary\/10:hover { background-color: hsl(var(--primary) / 0.1); }
+  .hover\:bg-primary\/90:hover { background-color: hsl(var(--primary) / 0.9); }
   .bg-accent { background-color: hsl(var(--accent)); }
   .bg-accent\/10 { background-color: hsl(var(--accent) / 0.1); }
   .bg-card { background-color: hsl(var(--card)); }
+  .bg-card\/80 { background-color: hsl(var(--card) / 0.8); }
 
   .text-foreground { color: hsl(var(--foreground)); }
   .text-muted-foreground { color: hsl(var(--muted-foreground)); }
   .text-primary { color: hsl(var(--primary)); }
+  .text-primary\/40 { color: hsl(var(--primary) / 0.4); }
+  .text-primary\/70 { color: hsl(var(--primary) / 0.7); }
   .text-primary-foreground { color: hsl(var(--primary-foreground)); }
   .text-accent { color: hsl(var(--accent)); }
 
   .border-border { border-color: hsl(var(--border)); }
   .border-primary { border-color: hsl(var(--primary)); }
   .border-primary\/20 { border-color: hsl(var(--primary) / 0.2); }
+  .border-primary\/25 { border-color: hsl(var(--primary) / 0.25); }
+  .border-primary\/30 { border-color: hsl(var(--primary) / 0.3); }
+  .border-primary\/35 { border-color: hsl(var(--primary) / 0.35); }
+  .border-primary\/40 { border-color: hsl(var(--primary) / 0.4); }
   .border-primary\/50 { border-color: hsl(var(--primary) / 0.5); }
+  .hover\:border-primary\/30:hover { border-color: hsl(var(--primary) / 0.3); }
+  .hover\:border-primary\/35:hover { border-color: hsl(var(--primary) / 0.35); }
+  .hover\:border-primary\/40:hover { border-color: hsl(var(--primary) / 0.4); }
+  .hover\:border-primary\/50:hover { border-color: hsl(var(--primary) / 0.5); }
 
   .bg-gradient-theme-r {
     background-image: linear-gradient(to right, hsl(var(--gradient-from)), hsl(var(--gradient-to)));
+  }
+  .bg-gradient-theme-br {
+    background-image: linear-gradient(135deg, hsl(var(--gradient-from)), hsl(var(--gradient-to)));
   }
   .text-gradient-theme {
     background-image: linear-gradient(to right, hsl(var(--gradient-from)), hsl(var(--gradient-to)));
@@ -108,6 +145,7 @@ button, a, [role="button"], summary { cursor: pointer; }
     background-clip: text;
     color: transparent;
   }
+  .font-mono { font-family: var(--font-mono); }
 }
 
 @keyframes fade-in {
@@ -125,6 +163,18 @@ button, a, [role="button"], summary { cursor: pointer; }
   0%, 49%   { opacity: 1; }
   50%, 100% { opacity: 0; }
 }
+
+@keyframes pill-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.92); }
+  to   { opacity: 1; transform: none; }
+}
+.animate-pill-in { animation: pill-in 0.5s cubic-bezier(0.34,1.56,0.64,1) both; }
+
+@keyframes pulse-ring {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 3px hsl(var(--primary) / 0.18); }
+  50%      { transform: scale(1.25); box-shadow: 0 0 0 6px hsl(var(--primary) / 0); }
+}
+.animate-pulse-ring { animation: pulse-ring 1.8s ease-in-out infinite; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

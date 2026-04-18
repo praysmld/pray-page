@@ -39,7 +39,7 @@ export const experience: Role[] = [
     location: 'Jakarta, Indonesia',
     period: 'Jan 2026 – Now',
     highlights: [
-      'Leading team of 15 AI engineers building AI agents that simplify the software development lifecycle.',
+      'Leading team of [[15 engineers]] building AI agents that simplify the software development lifecycle.',
       'Managing stakeholder expectations around AI agent capabilities and delivery timelines.',
       'Architecting multi-agent workflows on LangChain + LangGraph.',
     ],
@@ -52,7 +52,7 @@ export const experience: Role[] = [
     period: 'Nov 2025 – Jan 2026',
     highlights: [
       'Led 4-person team on computer vision for palm fruit quality assessment.',
-      'Refactored loose-fruit detection codebase, cutting developer time by 30%.',
+      'Refactored loose-fruit detection codebase, cutting developer time by [[-30%]].',
       'Automated deployment pipelines for CV model releases.',
     ],
     stack: ['Computer Vision', 'Python', 'MLOps', 'Team Leadership'],
@@ -74,11 +74,11 @@ export const experience: Role[] = [
     location: 'NY, US remote',
     period: 'Jul 2024 – Jun 2025',
     highlights: [
-      'Integrated multiple LLM APIs (OpenAI, Groq, Mistral, Anthropic, Bedrock) with Gmail/Jira/Slack — 20% latency reduction.',
+      'Integrated multiple LLM APIs (OpenAI, Groq, Mistral, Anthropic, Bedrock) with Gmail/Jira/Slack — [[-20% latency]].',
       'Built multi-modal conversational chatbot with podcast-style audio + image generation (Azure TTS, Flux).',
       'Designed agentic memory: session summarization + cross-session consolidation.',
       'Shipped PII protection using Microsoft Presidio before LLM calls.',
-      'Researched open-source embeddings — 15% cost reduction without quality loss.',
+      'Researched open-source embeddings — [[-15% cost]] without quality loss.',
     ],
     stack: ['TypeScript', 'Node.js', 'FastAPI', 'Milvus', 'PostgreSQL', 'Docker', 'Presidio', 'ollama', 'llamacpp'],
   },
@@ -89,11 +89,11 @@ export const experience: Role[] = [
     period: 'Jun 2021 – Jun 2024',
     highlights: [
       'Built on-premise RAG chatbots (LangChain, LlamaIndex, ChromaDB, Flask).',
-      'Fine-tuned Llama2 and Mistral — 60% improvement on a bank project.',
+      'Fine-tuned Llama2 and Mistral — [[+60% uplift]] on a bank project.',
       'Implemented NER for entity anonymization before LLM API calls.',
       'Advised AWS data analytics architecture and built MLOps on API Gateway + CloudWatch.',
-      'Fine-tuned multilingual embeddings with Q&A datasets — 15% retrieval lift.',
-      'Optimized LightGBM for ingredient prediction — 10% waste reduction.',
+      'Fine-tuned multilingual embeddings with Q&A datasets — [[+15% retrieval]].',
+      'Optimized LightGBM for ingredient prediction — [[-10% waste]].',
     ],
     stack: ['LangChain', 'LlamaIndex', 'ChromaDB', 'Elasticsearch', 'AWS', 'Docker', 'Kubernetes', 'RAG', 'Transformers', 'Grafana'],
   },
@@ -103,7 +103,7 @@ export const experience: Role[] = [
     location: 'Duren Sawit, Indonesia',
     period: 'Aug 2019 – Jan 2021',
     highlights: [
-      'Built real-time face recognition attendance system — <2s latency, 97%+ accuracy.',
+      'Built real-time face recognition attendance system — [[<2s latency]], [[97%+ acc]].',
       'Developed people density heatmap system for crowd visualization.',
     ],
     stack: ['OpenCV', 'TensorFlow', 'PyTorch', 'YOLO', 'TensorRT', 'DeepStream', 'ONNX'],
@@ -114,7 +114,7 @@ export const experience: Role[] = [
     location: 'Indonesia',
     period: 'Oct 2017 – Feb 2021',
     highlights: [
-      'Text ML model for news filtering — 95% accuracy.',
+      'Text ML model for news filtering — [[95% acc]].',
       'Data clustering for campaign segmentation (region, density, salary).',
       'NLP transformer for online course recommendation (Nanyang Technological University Singapore).',
     ],
@@ -171,6 +171,126 @@ export const achievements: Achievement[] = [
   { label: 'Udacity CV Nanodegree', detail: 'Computer Vision Nanodegree (Jul 2020).' },
   { label: 'MSc Computer Science', detail: 'University of Indonesia (2019–2021).' },
 ]
+
+export const rolePills = [
+  'LLM Systems',
+  'RAG Architect',
+  'Multi-Agent',
+  'Fine-tuning',
+  'MLOps',
+  'Computer Vision',
+  'Team Lead',
+] as const
+
+export type Stat = { value: string; label: string; sub: string }
+
+export const stats: Stat[] = [
+  { value: '15', label: 'Engineers led', sub: '@ Simplify · 2026' },
+  { value: '+60%', label: 'LLM fine-tune uplift', sub: 'Llama2 / Mistral · banking' },
+  { value: '97%', label: 'Face recognition acc.', sub: '<2s latency · real-time' },
+  { value: '8+', label: 'Years in AI / ML', sub: 'since 2017' },
+]
+
+export type Project = {
+  name: string
+  description: string
+  stack: string[]
+  metric: string
+  link: string
+}
+
+export const projects: Project[] = [
+  {
+    name: 'Project Name One',
+    description: 'Short one-line description of what it does and why it matters.',
+    stack: ['LangChain', 'FastAPI', 'Milvus'],
+    metric: '+XX% outcome',
+    link: '#',
+  },
+  {
+    name: 'Project Name Two',
+    description: 'Short one-line description of what it does and why it matters.',
+    stack: ['Python', 'PyTorch', 'OpenCV'],
+    metric: 'XX users',
+    link: '#',
+  },
+  {
+    name: 'Project Name Three',
+    description: 'Short one-line description of what it does and why it matters.',
+    stack: ['TypeScript', 'LangGraph', 'AWS'],
+    metric: 'open source',
+    link: '#',
+  },
+  {
+    name: 'Project Name Four',
+    description: 'Short one-line description of what it does and why it matters.',
+    stack: ['YOLO', 'TensorRT', 'DeepStream'],
+    metric: '97% accuracy',
+    link: '#',
+  },
+]
+
+export type Community = {
+  tag: string
+  title: string
+  sub: string
+  metrics: { value: string; label: string }[]
+}
+
+export const communities: Community[] = [
+  {
+    tag: 'Open Source',
+    title: 'JaidedAI / EasyOCR',
+    sub: 'Contributor to OCR library supporting 70+ languages worldwide.',
+    metrics: [
+      { value: '70+', label: 'languages' },
+      { value: 'OSS', label: 'contributor' },
+    ],
+  },
+  {
+    tag: 'Hackathon',
+    title: 'Mentor · Garuda Hacks',
+    sub: "Indonesia's premier hackathon — mentored teams across all tracks.",
+    metrics: [
+      { value: '52', label: 'teams' },
+      { value: '2023', label: 'edition' },
+    ],
+  },
+  {
+    tag: 'Competition',
+    title: 'Shopee NDSC · Top 10',
+    sub: 'Product matching task — advanced category, national level.',
+    metrics: [
+      { value: 'Top 10', label: 'rank' },
+      { value: '139', label: 'teams' },
+    ],
+  },
+]
+
+export type Cert = { icon: string; name: string; issuer: string; year: string }
+
+export const certs: Cert[] = [
+  { icon: 'AWS', name: 'ML Engineer – Associate', issuer: 'Amazon Web Services', year: 'Oct 2025' },
+  { icon: 'MSc', name: 'Master of Computer Science', issuer: 'University of Indonesia', year: '2019 – 2021' },
+  { icon: 'CV', name: 'Computer Vision Nanodegree', issuer: 'Udacity', year: 'Jul 2020' },
+  { icon: '★', name: 'Best Employee', issuer: 'GDP Labs · top 1 of 70+', year: 'Aug 2022' },
+  { icon: 'BK', name: 'Advisor · Bangkit Bootcamp', issuer: 'Google · GoTo · Traveloka', year: 'Jun 2023' },
+]
+
+export type HeroMetaItem = { k: string; v: string; dot?: boolean }
+
+export const heroMeta: HeroMetaItem[] = [
+  { k: 'status', v: 'open to senior / staff', dot: true },
+  { k: 'loc', v: '-6.2088, 106.8456' },
+  { k: 'focus', v: 'llm · rag · agents' },
+  { k: 'since', v: '2017' },
+]
+
+export const whoami = {
+  prompt: '~/pray',
+  cmd: 'whoami --short',
+  output: 'ai engineer · jakarta · 8+ yrs · langchain / langgraph / aws',
+}
 
 export const nav = {
   home: 'Home',
