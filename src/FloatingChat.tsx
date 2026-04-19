@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, type FormEvent } from 'react'
-import { MessageSquare, X, Send, Loader2 } from 'lucide-react'
+import { X, Send, Loader2 } from 'lucide-react'
 import { profile } from './i18n'
 
 type Message = { role: 'user' | 'assistant'; content: string }
@@ -67,18 +67,32 @@ export default function FloatingChat() {
         <button
           onClick={() => setOpen(true)}
           aria-label="Open chat"
-          className="fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30 flex items-center justify-center hover:scale-105 transition-transform"
+          className="fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full shadow-lg shadow-primary/30 ring-2 ring-primary/30 hover:scale-105 transition-transform overflow-visible"
         >
-          <MessageSquare className="h-6 w-6" />
+          <img
+            src="/pray.jpg"
+            alt={profile.name}
+            className="h-full w-full rounded-full object-cover"
+          />
+          <span
+            aria-hidden
+            className="absolute bottom-0.5 right-0.5 h-3.5 w-3.5 rounded-full bg-green-500 ring-2 ring-background"
+          />
+          <span
+            aria-hidden
+            className="absolute bottom-0.5 right-0.5 h-3.5 w-3.5 rounded-full bg-green-500 animate-ping opacity-70"
+          />
         </button>
       )}
       {open && (
         <div className="fixed bottom-6 right-6 z-50 w-[min(380px,calc(100vw-3rem))] h-[min(560px,calc(100vh-3rem))] bg-card border border-border rounded-2xl shadow-2xl shadow-primary/10 flex flex-col overflow-hidden">
           <header className="flex items-center justify-between px-4 py-3 border-b border-border bg-gradient-theme-r text-primary-foreground">
             <div className="flex items-center gap-2">
-              <div className="h-8 w-8 rounded-full bg-white/20 font-display font-bold text-sm flex items-center justify-center">
-                {profile.initials}
-              </div>
+              <img
+                src="/pray.jpg"
+                alt={profile.name}
+                className="h-8 w-8 rounded-full object-cover ring-2 ring-white/40"
+              />
               <div className="leading-tight">
                 <p className="font-semibold text-sm">Chat with {profile.name}</p>
                 <p className="text-xs opacity-80">AI twin · ask anything</p>

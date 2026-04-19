@@ -197,36 +197,25 @@ export type Project = {
   stack: string[]
   metric: string
   link: string
+  image?: string
 }
 
 export const projects: Project[] = [
   {
-    name: 'Project Name One',
-    description: 'Short one-line description of what it does and why it matters.',
-    stack: ['LangChain', 'FastAPI', 'Milvus'],
-    metric: '+XX% outcome',
-    link: '#',
+    name: 'Sprintlab.id',
+    description: 'Professional CV builder with Indonesian-focused templates — modern, elegant layouts for job applications.',
+    stack: ['Next.js', 'TypeScript', 'Tailwind'],
+    metric: 'Production',
+    link: 'https://sprintlab.id',
+    image: '/projects/sprintlab.png',
   },
   {
-    name: 'Project Name Two',
-    description: 'Short one-line description of what it does and why it matters.',
-    stack: ['Python', 'PyTorch', 'OpenCV'],
-    metric: 'XX users',
-    link: '#',
-  },
-  {
-    name: 'Project Name Three',
-    description: 'Short one-line description of what it does and why it matters.',
-    stack: ['TypeScript', 'LangGraph', 'AWS'],
+    name: 'RouteIQ',
+    description: 'AI-powered multimodal travel route planner. LangGraph agents orchestrate route discovery via semantic search + LLM supplier data extraction, streamed over SSE.',
+    stack: ['LangGraph', 'FastAPI', 'Qdrant', 'React'],
     metric: 'open source',
-    link: '#',
-  },
-  {
-    name: 'Project Name Four',
-    description: 'Short one-line description of what it does and why it matters.',
-    stack: ['YOLO', 'TensorRT', 'DeepStream'],
-    metric: '97% accuracy',
-    link: '#',
+    link: 'https://github.com/praysmld/RouteIQ',
+    image: '/projects/routeiq.png',
   },
 ]
 

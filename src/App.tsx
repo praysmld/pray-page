@@ -73,14 +73,13 @@ function TypewriterRole() {
 }
 
 function Avatar({ size = 'lg' }: { size?: 'sm' | 'lg' }) {
-  const dim = size === 'lg' ? 'h-24 w-24 text-3xl' : 'h-12 w-12 text-lg'
+  const dim = size === 'lg' ? 'h-24 w-24' : 'h-12 w-12'
   return (
-    <div
-      className={`${dim} rounded-full bg-gradient-theme-br text-primary-foreground font-display font-bold flex items-center justify-center shadow-lg shadow-primary/20`}
-      aria-label={profile.name}
-    >
-      {profile.initials}
-    </div>
+    <img
+      src="/pray.jpg"
+      alt={profile.name}
+      className={`${dim} rounded-full object-cover ring-2 ring-primary/30 shadow-lg shadow-primary/20`}
+    />
   )
 }
 
@@ -612,33 +611,54 @@ function Projects() {
         {projects.map((p) => (
           <article
             key={p.name}
-            className="bg-card border border-border rounded-2xl p-5 flex flex-col gap-3 hover:border-primary/35 hover:-translate-y-0.5 transition"
+            className="group bg-card border border-border rounded-2xl overflow-hidden flex flex-col hover:border-primary/35 hover:-translate-y-0.5 transition"
           >
-            <div className="flex justify-between items-start gap-3">
-              <div>
-                <div className="font-display font-semibold text-base mb-1">{p.name}</div>
-                <p className="text-[13.5px] text-muted-foreground leading-normal">{p.description}</p>
-              </div>
+            {p.image && (
               <a
                 href={p.link}
-                aria-label={`View ${p.name}`}
-                className="shrink-0 w-8 h-8 rounded-lg border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 transition"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block relative aspect-[16/10] overflow-hidden bg-muted/50 border-b border-border"
+                aria-hidden
+                tabIndex={-1}
               >
-                <ArrowUpRight className="h-4 w-4" />
+                <img
+                  src={p.image}
+                  alt=""
+                  loading="lazy"
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                />
               </a>
-            </div>
-            <span className="inline-flex self-start font-mono font-semibold text-primary bg-primary/8 rounded px-1.5 py-0.5 text-[13px]">
-              {p.metric}
-            </span>
-            <div className="flex flex-wrap gap-1.5">
-              {p.stack.map((t) => (
-                <span
-                  key={t}
-                  className="text-xs px-2.5 py-0.5 rounded-full bg-muted/50 text-muted-foreground border border-border"
+            )}
+            <div className="p-5 flex flex-col gap-3 flex-1">
+              <div className="flex justify-between items-start gap-3">
+                <div>
+                  <div className="font-display font-semibold text-base mb-1">{p.name}</div>
+                  <p className="text-[13.5px] text-muted-foreground leading-normal">{p.description}</p>
+                </div>
+                <a
+                  href={p.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`View ${p.name}`}
+                  className="shrink-0 w-8 h-8 rounded-lg border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 transition"
                 >
-                  {t}
-                </span>
-              ))}
+                  <ArrowUpRight className="h-4 w-4" />
+                </a>
+              </div>
+              <span className="inline-flex self-start font-mono font-semibold text-primary bg-primary/8 rounded px-1.5 py-0.5 text-[13px]">
+                {p.metric}
+              </span>
+              <div className="flex flex-wrap gap-1.5 mt-auto">
+                {p.stack.map((t) => (
+                  <span
+                    key={t}
+                    className="text-xs px-2.5 py-0.5 rounded-full bg-muted/50 text-muted-foreground border border-border"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
             </div>
           </article>
         ))}
