@@ -7,7 +7,7 @@ export const profile = {
   email: 'praysomaldo95@gmail.com',
   phone: '+62 82128660704',
   github: 'https://github.com/praysmld',
-  linkedin: 'https://linkedin.com/in/praysomaldo',
+  linkedin: 'https://www.linkedin.com/in/pray-somaldo-182725147',
   personalSite: 'https://prays.github.io',
   resume: '/Pray_Resume_14_April.pdf',
   currentCompany: 'Simplify',
