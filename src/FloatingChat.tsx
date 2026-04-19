@@ -40,8 +40,23 @@ export default function FloatingChat() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: next }),
       })
+      const data = await res.json().catch(() => ({}))
+      if (res.status === 429) {
+        const seconds = Number(data?.retryAfter) || 600
+        const waitMsg =
+          seconds >= 60
+            ? `about ${Math.ceil(seconds / 60)} minute${Math.ceil(seconds / 60) === 1 ? '' : 's'}`
+            : `about ${seconds} second${seconds === 1 ? '' : 's'}`
+        setMessages((prev) => [
+          ...prev,
+          {
+            role: 'assistant',
+            content: `You've sent a lot of messages in a short time — please wait ${waitMsg}. For anything urgent, email ${profile.email}.`,
+          },
+        ])
+        return
+      }
       if (!res.ok) throw new Error(`HTTP ${res.status}`)
-      const data = await res.json()
       setMessages((prev) => [...prev, { role: 'assistant', content: data.reply ?? '(no response)' }])
     } catch {
       setMessages((prev) => [

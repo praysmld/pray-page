@@ -1,6 +1,10 @@
 import Anthropic from '@anthropic-ai/sdk'
+import { createClient } from '@supabase/supabase-js'
 
 export const config = { runtime: 'edge' }
+
+const RATE_LIMIT = 5
+const RATE_WINDOW_SECONDS = 600
 
 const SYSTEM_PROMPT = `You are the AI twin of Pray Somaldo, a Lead AI Engineer based in Jakarta, Indonesia.
 
@@ -30,30 +34,43 @@ Contact: praysomaldo95@gmail.com · github.com/praysmld · linkedin.com/in/prays
 
 If asked something you don't know, say so and point people to email. Never fabricate projects or roles.`
 
+function getClientIp(req) {
+  const fwd = req.headers.get('x-forwarded-for')
+  if (fwd) return fwd.split(',')[0].trim()
+  const real = req.headers.get('x-real-ip')
+  if (real) return real.trim()
+  return 'unknown'
+}
+
+async function sha256Hex(input) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(input))
+  return Array.from(new Uint8Array(buf))
+    .map((b) => b.toString(16).padStart(2, '0'))
+    .join('')
+}
+
+function jsonResponse(status, body, extraHeaders = {}) {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: { 'Content-Type': 'application/json', ...extraHeaders },
+  })
+}
+
 export default async function handler(req) {
   if (req.method !== 'POST') {
-    return new Response(JSON.stringify({ error: 'Method not allowed' }), {
-      status: 405,
-      headers: { 'Content-Type': 'application/json' },
-    })
+    return jsonResponse(405, { error: 'Method not allowed' })
   }
 
   const apiKey = process.env.ANTHROPIC_API_KEY
   if (!apiKey) {
-    return new Response(
-      JSON.stringify({ error: 'Server missing ANTHROPIC_API_KEY' }),
-      { status: 500, headers: { 'Content-Type': 'application/json' } },
-    )
+    return jsonResponse(500, { error: 'Server missing ANTHROPIC_API_KEY' })
   }
 
   let body
   try {
     body = await req.json()
   } catch {
-    return new Response(JSON.stringify({ error: 'Invalid JSON' }), {
-      status: 400,
-      headers: { 'Content-Type': 'application/json' },
-    })
+    return jsonResponse(400, { error: 'Invalid JSON' })
   }
 
   const messages = Array.isArray(body?.messages) ? body.messages : []
@@ -63,16 +80,44 @@ export default async function handler(req) {
     .map((m) => ({ role: m.role, content: m.content.slice(0, 4000) }))
 
   if (trimmed.length === 0) {
-    return new Response(JSON.stringify({ error: 'No messages' }), {
-      status: 400,
-      headers: { 'Content-Type': 'application/json' },
-    })
+    return jsonResponse(400, { error: 'No messages' })
+  }
+
+  const supabaseUrl = process.env.SUPABASE_URL
+  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+  if (supabaseUrl && supabaseKey) {
+    try {
+      const supabase = createClient(supabaseUrl, supabaseKey, {
+        auth: { persistSession: false },
+      })
+      const ipHash = await sha256Hex(getClientIp(req))
+      const { data, error } = await supabase.rpc('chat_rate_limit_check', {
+        p_ip_hash: ipHash,
+        p_limit: RATE_LIMIT,
+        p_window_seconds: RATE_WINDOW_SECONDS,
+      })
+      if (error) {
+        console.warn('[chat] rate-limit check failed, failing open:', error.message)
+      } else {
+        const row = Array.isArray(data) ? data[0] : data
+        if (row && !row.allowed) {
+          const retryAfter = row.retry_after_seconds ?? RATE_WINDOW_SECONDS
+          return jsonResponse(
+            429,
+            { error: 'rate_limited', retryAfter },
+            { 'Retry-After': String(retryAfter) },
+          )
+        }
+      }
+    } catch (err) {
+      console.warn('[chat] rate-limit threw, failing open:', err?.message ?? err)
+    }
   }
 
   const client = new Anthropic({ apiKey })
   try {
     const response = await client.messages.create({
-      model: 'claude-sonnet-4-6',
+      model: 'claude-haiku-4-5-20251001',
       max_tokens: 600,
       system: SYSTEM_PROMPT,
       messages: trimmed,
@@ -82,14 +127,8 @@ export default async function handler(req) {
       .map((b) => b.text)
       .join('\n')
       .trim()
-    return new Response(JSON.stringify({ reply }), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' },
-    })
+    return jsonResponse(200, { reply })
   } catch (err) {
-    return new Response(
-      JSON.stringify({ error: err?.message ?? 'Upstream error' }),
-      { status: 502, headers: { 'Content-Type': 'application/json' } },
-    )
+    return jsonResponse(502, { error: err?.message ?? 'Upstream error' })
   }
 }
