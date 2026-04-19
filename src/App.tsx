@@ -76,7 +76,7 @@ function Avatar({ size = 'lg' }: { size?: 'sm' | 'lg' }) {
   const dim = size === 'lg' ? 'h-24 w-24' : 'h-12 w-12'
   return (
     <img
-      src="/pray.jpg"
+      src="/pray.png"
       alt={profile.name}
       className={`${dim} rounded-full object-cover ring-2 ring-primary/30 shadow-lg shadow-primary/20`}
     />

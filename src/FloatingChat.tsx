@@ -70,7 +70,7 @@ export default function FloatingChat() {
           className="fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full shadow-lg shadow-primary/30 ring-2 ring-primary/30 hover:scale-105 transition-transform overflow-visible"
         >
           <img
-            src="/pray.jpg"
+            src="/pray.png"
             alt={profile.name}
             className="h-full w-full rounded-full object-cover"
           />
@@ -89,7 +89,7 @@ export default function FloatingChat() {
           <header className="flex items-center justify-between px-4 py-3 border-b border-border bg-gradient-theme-r text-primary-foreground">
             <div className="flex items-center gap-2">
               <img
-                src="/pray.jpg"
+                src="/pray.png"
                 alt={profile.name}
                 className="h-8 w-8 rounded-full object-cover ring-2 ring-white/40"
               />
