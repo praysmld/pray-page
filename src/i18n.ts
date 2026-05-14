@@ -9,7 +9,7 @@ export const profile = {
   github: 'https://github.com/praysmld',
   linkedin: 'https://www.linkedin.com/in/pray-somaldo-182725147',
   personalSite: 'https://prays.github.io',
-  resume: '/Pray_Resume_14_April.pdf',
+  resume: '/resume.html',
   currentCompany: 'Simplify',
 }
 
