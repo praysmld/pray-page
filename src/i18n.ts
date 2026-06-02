@@ -202,6 +202,14 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    name: 'Geniverse.ai',
+    description: 'All-in-one AI productivity hub — unified access to top AI models with knowledge management, project Spaces, memory, and bank-level security.',
+    stack: ['Next.js', 'TypeScript', 'AI'],
+    metric: 'Production',
+    link: 'https://geniverse.ai',
+    image: '/projects/geniverse.png',
+  },
+  {
     name: 'Sprintlab.id',
     description: 'Professional CV builder with Indonesian-focused templates — modern, elegant layouts for job applications.',
     stack: ['Next.js', 'TypeScript', 'Tailwind'],
